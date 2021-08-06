@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="./estilosLogin.css"></link>
+</head>
+<body>
+	<div id="contPapa">
+		<div id="fromLogin">
+
+			<div class="conUsuario">
+				<i class="fas fa-user-alt"></i><br> <!--falta ver buscador de pagina pato para que lo junte y de estilos a los 2 input -->
+				<input id="usuario" type="text" placeholder="username">
+			</div>
+			<div class="conUsuario">
+				<i class="fas fa-lock"></i><br>
+				<input id="password"  type="password" placeholder="password">
+			</div>
+
+			<button id="envio" disabled class="boton">login</button>
+		</div>
+	</div>
+	<script>
+//este si es ...
+		var usuario=document.getElementById("usuario");
+		var password=document.getElementById("password");
+		var envio= document.getElementById("envio");
+
+		usuario.addEventListener("keyup", e => validar(e)); 
+		password.addEventListener("keyup", e => validar(e));
+
+
+
+		function validar(e){
+			if(validarUsuario() && validarPassword()){
+				//se habilita
+				envio.removeAttribute('disabled');
+			}else{
+				//se deshabilita
+				
+				envio.setAttribute('disabled',"");
+			}
+		}
+		function validarUsuario(){ 
+			//true si el nombre es superior a 3 caracteres de longitud.De lo contrario,devuelve false.
+			if(usuario["value"].length > 3){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		function validarPassword(){
+			//true si la contraseña tiene al menos 8 caracteres de longitud. De lo contrario, devuelve false.
+			if(password["value"].length > 8){
+				return true;
+			}else{
+				return false;
+			}
+		}
+
+	</script>
+	<script defer src="https://pro.fontawesome.com/releases/v5.10.0/js/all.js" integrity="sha384-G/ZR3ntz68JZrH4pfPJyRbjW+c0+ojii5f+GYiYwldYU69A+Ejat6yIfLSxljXxD" crossorigin="anonymous"></script>
+</body>
+</html>
